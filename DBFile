@@ -1,0 +1,8 @@
+CREATE TABLE Students (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100),
+    DateOfBirth DATE,
+    Gender NVARCHAR(10),
+    Hobbies NVARCHAR(255),
+    ProfilePicture NVARCHAR(255)
+);
