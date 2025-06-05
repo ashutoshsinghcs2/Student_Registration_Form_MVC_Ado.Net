@@ -1,0 +1,38 @@
+﻿@model List<StudentSingleModel.Models.Student>
+
+@{
+    ViewBag.Title = "Student Report";
+}
+
+<h2>Student Report</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Hobbies</th>
+            <th>Profile Picture</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.DateOfBirth.ToShortDateString()</td>
+                <td>@student.Gender</td>
+                <td>@student.Hobbies</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(student.ProfilePicture))
+                    {
+                        <img src="@Url.Content("~/Upload/" + student.ProfilePicture)" alt="Profile Picture" width="50" height="50" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
